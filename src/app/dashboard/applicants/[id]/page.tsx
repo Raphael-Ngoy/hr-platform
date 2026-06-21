@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import prisma from '@/lib/prisma'
+import { prisma } from "@/lib/prisma"
 import { notFound } from 'next/navigation'
 import ApplicantDetail from '@/components/ApplicantDetail'
 

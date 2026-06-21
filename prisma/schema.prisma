@@ -67,7 +67,7 @@ model Activity {
 model ProfileSetting {
   id    String @id @default(cuid())
   name  String @default("HR Admin")
-  email String @unique
+  email String? @unique
   role  String @default("HR Admin")
 }
 

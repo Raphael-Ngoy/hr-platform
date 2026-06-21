@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import prisma from '@/lib/prisma'
+import { prisma } from "@/lib/prisma"
 import Link from 'next/link'
 import AnimatedCard from '@/components/animations/AnimatedCard'
 import FadeIn from '@/components/animations/FadeIn'

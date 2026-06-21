@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import prisma from '@/lib/prisma'
+import { prisma } from "@/lib/prisma"
 import JobCard from '@/components/JobCard'
 import { motion } from 'framer-motion'
 

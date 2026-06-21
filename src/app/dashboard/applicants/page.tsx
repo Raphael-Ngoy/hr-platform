@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import prisma from '@/lib/prisma'
+import { prisma } from "@/lib/prisma"
 import ApplicantCard from '@/components/ApplicantCard'
 import DeleteApplicantButton from '@/components/DeleteApplicantButton'
 

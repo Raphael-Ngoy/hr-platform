@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero"
 import JobCard from "@/components/JobCard"
-import prisma from "@/lib/prisma"
+import { prisma } from "@/lib/prisma"
 import { Job } from "@prisma/client"
 
 async function getJobs() {

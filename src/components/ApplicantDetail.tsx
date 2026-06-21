@@ -23,7 +23,7 @@ interface Applicant {
     type: string
   } | null
   activities?: any[]
-  createdAt: string
+  createdAt: Date
 }
 
 interface ApplicantDetailProps {

@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import prisma from '@/lib/prisma'
+import { prisma } from "@/lib/prisma"
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, MapPin, Clock, DollarSign, Building2, Users, CheckCircle } from 'lucide-react'

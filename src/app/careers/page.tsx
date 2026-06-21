@@ -31,7 +31,7 @@ async function getDepartments(): Promise<string[]> {
       where: { isActive: true },
       select: { department: true }
     })
-    return [...new Set(jobs.map((job: any) => job.department))] as string[]
+    return Array.from(new Set(jobs.map((job: any) => job.department))) as string[]
   } catch (error) {
     console.error('Error fetching departments:', error)
     return []

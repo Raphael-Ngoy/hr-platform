@@ -5,8 +5,11 @@ export async function GET() {
   try {
     const jobs = await prisma.job.findMany({ orderBy: { createdAt: 'desc' } })
     return NextResponse.json(jobs)
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching jobs:', error)
+    if (error.code === 'P1001' || error.message?.includes('Can\'t reach database server')) {
+      return NextResponse.json([])
+    }
     return NextResponse.json({ error: 'Failed to fetch jobs' }, { status: 500 })
   }
 }

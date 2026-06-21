@@ -8,6 +8,10 @@ const nextConfig = {
       },
     ],
   },
+  // Required for Vercel deployment with Prisma
+  experimental: {
+    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+  },
 }
 
 module.exports = nextConfig

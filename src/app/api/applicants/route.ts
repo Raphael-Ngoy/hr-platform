@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
       const filename = `cvs/${timestamp}_${originalName}`
 
       const blob = await put(filename, cvFile, {
-        access: 'public',
+        access: 'private',
       })
 
       cvUrl = blob.url

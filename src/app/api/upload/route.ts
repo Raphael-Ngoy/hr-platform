@@ -15,9 +15,9 @@ export async function POST(request: NextRequest) {
     const originalName = file.name.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_.-]/g, '')
     const filename = `cvs/${timestamp}_${originalName}`
 
-    // Upload to Vercel Blob
+    // Upload to Vercel Blob (private store — no public access)
     const blob = await put(filename, file, {
-      access: 'public',
+      access: 'private',
     })
 
     // Return public URL

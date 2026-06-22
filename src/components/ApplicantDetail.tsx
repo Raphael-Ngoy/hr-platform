@@ -156,7 +156,7 @@ export default function ApplicantDetail({ applicant }: ApplicantDetailProps) {
           <div className="lg:ml-6">
             {applicant.cvUrl ? (
               <a
-                href={applicant.cvUrl}
+                href={`/api/applicants/${applicant.id}/cv`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors"

@@ -232,11 +232,10 @@ This is a production-ready template. For production deployment:
 7. Configure CORS and security headers
 8. Use connection pooling for PostgreSQL (e.g., PgBouncer with Neon)
 
-## 👤 Author
+## Author
 
 Raphael Ngoy Full-Stack Developer (Aspiring Freelancer)
 
-## License
+## 📜 License
 
-
-MIT
+This project is for portfolio/learnig/demo purposes only.

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from "@/lib/prisma"
-import { writeFileSync, mkdirSync } from 'fs'
-import { join } from 'path'
+import { put } from '@vercel/blob'
 
 export async function POST(request: NextRequest) {
   try {
@@ -57,24 +56,20 @@ export async function POST(request: NextRequest) {
       }, { status: 400 })
     }
 
-    // Handle CV file upload
+    // Handle CV file upload via Vercel Blob
     let cvUrl: string | null = null
 
     if (cvFile && cvFile.size > 0) {
-      const uploadsDir = join(process.cwd(), 'public', 'uploads', 'cvs')
-      mkdirSync(uploadsDir, { recursive: true })
-
       const timestamp = new Date().toISOString().split('T')[0].replace(/-/g, '')
       const originalName = cvFile.name.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_.-]/g, '')
-      const filename = `${timestamp}_${originalName}`
-      const filepath = join(uploadsDir, filename)
+      const filename = `cvs/${timestamp}_${originalName}`
 
-      const bytes = await cvFile.arrayBuffer()
-      const buffer = Buffer.from(bytes)
-      writeFileSync(filepath, buffer)
+      const blob = await put(filename, cvFile, {
+        access: 'public',
+      })
 
-      cvUrl = `/uploads/cvs/${filename}`
-      console.log('CV SAVED:', cvUrl)
+      cvUrl = blob.url
+      console.log('CV UPLOADED TO BLOB:', cvUrl)
     } else {
       console.error('CV FILE IS EMPTY OR INVALID')
       return NextResponse.json({

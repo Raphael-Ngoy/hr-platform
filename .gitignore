@@ -8,3 +8,9 @@ build
 prisma/dev.db
 public/uploads/cvs/*
 !public/uploads/cvs/.gitkeep
+.vercel
+.env
+.env.local
+.env.development
+.env.production
+.env.production.local

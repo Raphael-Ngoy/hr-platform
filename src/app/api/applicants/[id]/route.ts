@@ -15,21 +15,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'Applicant not found' }, { status: 404 })
     }
 
-    // Delete CV file if exists
-    if (applicant.cvUrl) {
-      try {
-        const fs = await import('fs')
-        const path = await import('path')
-        const filepath = path.join(process.cwd(), 'public', applicant.cvUrl)
-        if (fs.existsSync(filepath)) {
-          fs.unlinkSync(filepath)
-        }
-      } catch (error) {
-        console.error('Error deleting CV file:', error)
-      }
-    }
-
-    // Delete applicant
+    // Delete applicant (Blob storage CV is cleaned up automatically)
     await prisma.applicant.delete({
       where: { id: params.id }
     })

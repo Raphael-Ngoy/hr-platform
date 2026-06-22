@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFileSync, mkdirSync } from 'fs'
-import { join } from 'path'
+import { put } from '@vercel/blob'
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,27 +10,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 })
     }
 
-    // Create uploads directory if it doesn't exist
-    const uploadsDir = join(process.cwd(), 'public', 'uploads', 'cvs')
-    mkdirSync(uploadsDir, { recursive: true })
-
     // Generate unique filename
     const timestamp = new Date().toISOString().split('T')[0].replace(/-/g, '')
     const originalName = file.name.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_.-]/g, '')
-    const filename = `${timestamp}_${originalName}`
-    const filepath = join(uploadsDir, filename)
+    const filename = `cvs/${timestamp}_${originalName}`
 
-    // Save file
-    const bytes = await file.arrayBuffer()
-    const buffer = Buffer.from(bytes)
-    writeFileSync(filepath, buffer)
+    // Upload to Vercel Blob
+    const blob = await put(filename, file, {
+      access: 'public',
+    })
 
-    // Return public URL path
-    const publicPath = `/uploads/cvs/${filename}`
-    
-    return NextResponse.json({ 
-      path: publicPath,
-      filename: filename 
+    // Return public URL
+    return NextResponse.json({
+      path: blob.url,
+      filename: filename
     })
   } catch (error) {
     console.error('Error uploading file:', error)

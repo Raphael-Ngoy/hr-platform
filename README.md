@@ -2,6 +2,20 @@
 
 A production-quality full-stack HR Recruitment Web Application built with Next.js 14, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, and NextAuth.
 
+## Preview
+
+## Desktop View
+![Desktop 1](https://github.com/user-attachments/assets/b036e71c-cb1d-4c28-8d10-e8cbd7418d69)
+![Desktop 3](https://github.com/user-attachments/assets/7ae079f8-c7fa-4428-be55-1578d71d42dc)
+![Desktop 2](https://github.com/user-attachments/assets/43a0043f-24e4-4e7c-a38e-e79eae267163)
+
+## Mobile View
+![Mobile 4](https://github.com/user-attachments/assets/af654f1c-3c4b-45e3-a83e-907f240b5c10)
+![Mobile 3](https://github.com/user-attachments/assets/93b873d6-c422-4df2-85b7-b584695278c4)
+![Mobile 2](https://github.com/user-attachments/assets/ea5aadf4-9eab-459b-abe2-cfd3c40c9f7e)
+![Mobile 1](https://github.com/user-attachments/assets/bb9ad551-fa87-45db-8526-ce164e04f31d)
+
+
 ## Features
 
 ### Public Website

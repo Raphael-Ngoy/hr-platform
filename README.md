@@ -238,4 +238,4 @@ Raphael Ngoy Full-Stack Developer (Aspiring Freelancer)
 
 ## 📜 License
 
-This project is for portfolio/learnig/demo purposes only.
+This project is for portfolio/learning/demo purposes only.
